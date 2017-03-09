@@ -3,8 +3,9 @@ const express = require('express')
 const app = express()
 const server = require('http').createServer(app)
 const io = require('socket.io')(server)
+const layouts = require('src/templates/layout')
 
-app.get('/', (_r, res) => res.sendFile(path.join(__dirname, './www/index.html')))
+app.get('/', (_r, res) => res.send(layouts.index()))
 
 app.use(express.static('node_modules'))
 

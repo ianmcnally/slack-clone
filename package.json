@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "A slack clone",
   "scripts": {
-    "start": "node server.js"
+    "start": "NODE_PATH=. node server.js"
   },
   "main": "index.js",
   "license": "MIT",
