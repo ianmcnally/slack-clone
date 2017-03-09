@@ -1,0 +1,12 @@
+.page-container {
+  display: flex;
+}
+
+.navigation {
+  flex: 1;
+}
+
+.chat-window {
+  flex: 4;
+}
+

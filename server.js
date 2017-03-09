@@ -10,6 +10,7 @@ app.get('/', (_r, res) => res.redirect('/rooms/general'))
 app.use('/rooms', rooms)
 
 app.use(express.static('node_modules'))
+app.use(express.static('www'))
 
 io.on('connection', () => {
   console.log('connected')
