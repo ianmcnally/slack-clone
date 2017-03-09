@@ -4,8 +4,11 @@ const app = express()
 const server = require('http').createServer(app)
 const io = require('socket.io')(server)
 const layouts = require('src/templates/layout')
+const rooms = require('src/rooms')
 
 app.get('/', (_r, res) => res.send(layouts.index()))
+
+app.use('/rooms', rooms)
 
 app.use(express.static('node_modules'))
 
