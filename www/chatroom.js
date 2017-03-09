@@ -8,8 +8,12 @@ const nodes = {
 
 const joinRoom = room => socket.emit('join room', { room })
 
+const getChannelNameFromURL = () => window.location.pathname.match(/\/rooms\/(\w+)\b/)[1]
+
+const channelName = getChannelNameFromURL()
+
 socket.on('connect', () => {
-  joinRoom(window.WS_CHANNEL_NAME)
+  joinRoom(channelName)
 
   socket.on('new message received', addMessageToMessages)
 });
@@ -18,7 +22,7 @@ const handleSendClick = () => {
   const message = nodes.messageInput.value
 
   socket.emit('new message sent', {
-    room: window.WS_CHANNEL_NAME,
+    room: channelName,
     message,
     username: 'User',
     time: new Date().getTime()

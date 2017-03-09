@@ -29,7 +29,6 @@ const channelPage = (channelName) => pageWrapper(`
     </main>
   </body>
   <script src="/chatroom.js"></script>
-  <script>window.WS_CHANNEL_NAME = '${channelName}'</script>
 `)
 
 module.exports = { channelPage }
