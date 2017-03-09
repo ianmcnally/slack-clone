@@ -6,15 +6,21 @@ const rooms = require('src/rooms')
 const socket = require('src/socket')
 const io = socket.getSocketConnectionForServer(server)
 
+app.use(express.static('node_modules'))
+app.use(express.static('www'))
+
 app.get('/', (_r, res) => res.redirect('/rooms/general'))
 
 app.use('/rooms', rooms)
 
-app.use(express.static('node_modules'))
-app.use(express.static('www'))
+io.on('connection', (socket) => {
+  socket.on('join room', ({ room }) => {
+    socket.join(room)
+  })
 
-io.on('connection', () => {
-  console.log('connected')
+  socket.on('new message sent', messageData => {
+    io.to(messageData.room).emit('new message received', messageData)
+  })
 })
 
 server.listen(3000, () => {

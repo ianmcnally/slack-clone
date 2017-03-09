@@ -20,28 +20,16 @@ const channelPage = (channelName) => pageWrapper(`
     </nav>
     <main class="chat-window">
       Chat window for ${channelName}
+      <section id="messages">
+      </section>
       <footer>
         <input type="text" name="message" id="message" />
         <button type="button" id="send">Send</button>
       </footer>
     </main>
   </body>
-  <script>
-    var socket = io('http://localhost:3000/${channelName}');
-    socket.on('connect', () => {
-      console.log('connected')
-    });
-
-    var sendButton = document.getElementById('send')
-    var message = document.getElementById('message')
-
-    const handleSendClick = () => {
-      console.log('sending message', message.value)
-    }
-
-    sendButton.addEventListener('click', handleSendClick)
-
-  </script>
+  <script src="/chatroom.js"></script>
+  <script>window.WS_CHANNEL_NAME = '${channelName}'</script>
 `)
 
 module.exports = { channelPage }
