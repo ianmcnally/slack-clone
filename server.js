@@ -13,14 +13,8 @@ app.get('/', (_r, res) => res.redirect('/rooms/general'))
 
 app.use('/rooms', rooms)
 
-io.on('connection', (socket) => {
-  socket.on('join room', ({ room }) => {
-    socket.join(room)
-  })
-
-  socket.on('new message sent', messageData => {
-    io.to(messageData.room).emit('new message received', messageData)
-  })
+io.on('connection', (socketClient) => {
+  socket.setHandlersOnSocket(socketClient, io)
 })
 
 server.listen(3000, () => {
