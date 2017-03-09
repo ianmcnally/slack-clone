@@ -3,10 +3,9 @@ const express = require('express')
 const app = express()
 const server = require('http').createServer(app)
 const io = require('socket.io')(server)
-const layouts = require('src/templates/layout')
 const rooms = require('src/rooms')
 
-app.get('/', (_r, res) => res.send(layouts.index()))
+app.get('/', (_r, res) => res.redirect('/rooms/general'))
 
 app.use('/rooms', rooms)
 

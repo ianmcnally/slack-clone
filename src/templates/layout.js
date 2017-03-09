@@ -8,9 +8,22 @@ const pageWrapper = (body) => `
   </html>
 `
 
-const index = () => pageWrapper(`
+const channelPage = (channelName) => pageWrapper(`
   <body>
-    Hey slack clone.
+    <nav>
+      Channels
+      <ul>
+        <li><a href="/rooms/general">general</a></li>
+        <li><a href="/rooms/random">random</a></li>
+      </ul>
+    </nav>
+    <main>
+      Chat window for ${channelName}
+      <footer>
+        <input type="text" name="message" />
+        <button type="button">Send</button>
+      </footer>
+    </main>
   </body>
   <script>
     var socket = io('http://localhost:3000');
@@ -22,5 +35,5 @@ const index = () => pageWrapper(`
   </script>
 `)
 
-module.exports = { index }
+module.exports = { channelPage }
 
