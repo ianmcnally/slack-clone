@@ -2,8 +2,9 @@ const path = require('path')
 const express = require('express')
 const app = express()
 const server = require('http').createServer(app)
-const io = require('socket.io')(server)
 const rooms = require('src/rooms')
+const socket = require('src/socket')
+const io = socket.getSocketConnectionForServer(server)
 
 app.get('/', (_r, res) => res.redirect('/rooms/general'))
 
