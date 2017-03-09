@@ -21,8 +21,8 @@ const channelPage = (channelName) => pageWrapper(`
     <main class="chat-window">
       Chat window for ${channelName}
       <footer>
-        <input type="text" name="message" />
-        <button type="button">Send</button>
+        <input type="text" name="message" id="message" />
+        <button type="button" id="send">Send</button>
       </footer>
     </main>
   </body>
@@ -31,6 +31,16 @@ const channelPage = (channelName) => pageWrapper(`
     socket.on('connect', () => {
       console.log('connected')
     });
+
+    var sendButton = document.getElementById('send')
+    var message = document.getElementById('message')
+
+    const handleSendClick = () => {
+      console.log('sending message', message.value)
+    }
+
+    sendButton.addEventListener('click', handleSendClick)
+
   </script>
 `)
 
