@@ -1,9 +1,8 @@
 const socket = io(`http://localhost:3000/`);
 
 const nodes = {
-  sendButton: document.getElementById('send'),
-  messageInput: document.getElementById('message'),
-  messagesContainer: document.getElementById('messages')
+  messagesContainer: document.getElementById('messages'),
+  messageForm: document.getElementById('message-form')
 }
 
 const joinRoom = room => socket.emit('join room', { room })
@@ -18,8 +17,11 @@ socket.on('connect', () => {
   socket.on('new message received', addMessageToMessages)
 });
 
-const handleSendClick = () => {
-  const message = nodes.messageInput.value
+const handleMessageSubmit = event => {
+  event.preventDefault()
+
+  const form = event.target
+  const message = form.message.value
 
   socket.emit('new message sent', {
     room: channelName,
@@ -27,6 +29,8 @@ const handleSendClick = () => {
     username: 'User',
     time: new Date().getTime()
   })
+
+  form.reset()
 }
 
 const addMessageToMessages = messageData => {
@@ -40,5 +44,5 @@ const addMessageToMessages = messageData => {
   nodes.messagesContainer.appendChild(node)
 }
 
-nodes.sendButton.addEventListener('click', handleSendClick)
+nodes.messageForm.addEventListener('submit', handleMessageSubmit)
 
