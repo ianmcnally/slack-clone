@@ -1,12 +1,37 @@
+:root {
+  --nav-background-color: #4D394B;
+  --nav-text-color: #A595A3;
+  --chat-background-color: #FFF;
+  font-size: 62.5%;
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
 .page-container {
   display: flex;
+  margin: 0;
+  font-size: 1.6rem;
 }
 
 .navigation {
   flex: 1;
+  background-color: var(--nav-background-color);
+  color: var(--nav-text-color);
 }
 
 .chat-window {
   flex: 4;
+  background-color: var(--chat-background-color);
 }
 
+.navigation,
+.chat-window {
+  padding: 1rem;
+}
+
+.chat-heading {
+  margin-top: 0;
+}

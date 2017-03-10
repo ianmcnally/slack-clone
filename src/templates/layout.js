@@ -20,7 +20,7 @@ const channelPage = (channelName) => pageWrapper(`
       </ul>
     </nav>
     <main class="chat-window">
-      Chat window for ${channelName}
+      <h2 class="chat-heading">#${channelName}</h2>
       <section id="messages">
       </section>
       <footer>
