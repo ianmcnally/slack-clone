@@ -25,7 +25,7 @@ const channelPage = (channelName) => pageWrapper(`
       </section>
       <footer>
         <form action="" name="message" id="message-form" class="message-container">
-          <input type="text" name="message" id="message" class="message-input" />
+          <input type="text" name="message" id="message" class="message-input" placeholder="Message #${channelName}" />
           <button type="submit" hidden id="send" class="message-send">Send</button>
         </form>
       </footer>
