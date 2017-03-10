@@ -1,3 +1,5 @@
+const { chatWindow } = require('src/templates/chat-window')
+
 const pageWrapper = (body) => `
   <html>
     <head>
@@ -12,24 +14,7 @@ const pageWrapper = (body) => `
 
 const channelPage = (channelName) => pageWrapper(`
   <body class="page-container">
-    <nav class="navigation">
-      <h3 class="navigation-heading">Channels</h3>
-      <ul class="channel-link-container">
-        <li><a class="channel-link" href="/rooms/general">general</a></li>
-        <li><a class="channel-link" href="/rooms/random">random</a></li>
-      </ul>
-    </nav>
-    <main class="chat-window">
-      <h2 class="chat-heading">#${channelName}</h2>
-      <section id="messages" class="messages">
-      </section>
-      <footer>
-        <form action="" name="message" id="message-form" class="message-container">
-          <input autofocus type="text" name="message" id="message" class="message-input" placeholder="Message #${channelName}" />
-          <button type="submit" hidden id="send" class="message-send">Send</button>
-        </form>
-      </footer>
-    </main>
+    ${chatWindow(channelName)}
   </body>
   <script src="/chatroom.js"></script>
 `)
