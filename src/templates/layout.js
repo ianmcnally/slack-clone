@@ -3,6 +3,7 @@ const pageWrapper = (body) => `
     <head>
       <title>Slack clone</title>
       <link rel="stylesheet" href="/main.css">
+      <link rel="stylesheets" href="/normalize.css/normalize.css">
       <script src="/socket.io-client/dist/socket.io.js"></script>
     </head>
     ${body}

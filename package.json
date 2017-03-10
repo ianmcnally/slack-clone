@@ -9,6 +9,7 @@
   "license": "MIT",
   "dependencies": {
     "express": "^4.15.2",
+    "normalize.css": "^5.0.0",
     "socket.io": "^1.7.3",
     "socket.io-client": "^1.7.3"
   }
