@@ -2,7 +2,10 @@
   --nav-background-color: #4D394B;
   --nav-text-color: #A595A3;
   --chat-background-color: #FFF;
+  --input-border-color: #BBBDBF;
+  --input-text-color: #9F9F9F;
   font-size: 62.5%;
+  font-family: -apple-system, sans-serif;
   box-sizing: border-box;
 }
 
@@ -32,6 +35,51 @@
   padding: 1rem;
 }
 
+.chat-window {
+  display: flex;
+  flex-direction: column;
+}
+
+.messages {
+  flex: 1;
+}
+
 .chat-heading {
   margin-top: 0;
 }
+
+.message-container {
+  display: flex;
+  align-items: flex-end;
+  margin: 0;
+}
+
+.navigation-heading {
+  margin-top: 0;
+  text-transform: uppercase;
+}
+
+.channel-link-container {
+  padding: 0;
+  list-style-type: none;
+}
+
+.channel-link {
+  color: inherit;
+  text-transform: capitalize;
+}
+
+.message-input {
+  border-color: var(--input-border-color);
+  border-width: 2px;
+  border-style: solid;
+  border-radius: 3px;
+  color: var(--input-text-color);
+  flex: 1;
+  padding: 1rem 1.1rem;
+}
+
+.message-send {
+  margin-left: .5rem;
+}
+

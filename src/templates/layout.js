@@ -13,19 +13,21 @@ const pageWrapper = (body) => `
 const channelPage = (channelName) => pageWrapper(`
   <body class="page-container">
     <nav class="navigation">
-      Channels
-      <ul>
-        <li><a href="/rooms/general">general</a></li>
-        <li><a href="/rooms/random">random</a></li>
+      <h3 class="navigation-heading">Channels</h3>
+      <ul class="channel-link-container">
+        <li><a class="channel-link" href="/rooms/general">general</a></li>
+        <li><a class="channel-link" href="/rooms/random">random</a></li>
       </ul>
     </nav>
     <main class="chat-window">
       <h2 class="chat-heading">#${channelName}</h2>
-      <section id="messages">
+      <section id="messages" class="messages">
       </section>
       <footer>
-        <input type="text" name="message" id="message" />
-        <button type="button" id="send">Send</button>
+        <form action="" name="message" id="message-form" class="message-container">
+          <input type="text" name="message" id="message" class="message-input" />
+          <button type="submit" hidden id="send" class="message-send">Send</button>
+        </form>
       </footer>
     </main>
   </body>
