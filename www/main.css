@@ -59,6 +59,10 @@
   margin-bottom: 0;
 }
 
+.message-metadata:first-of-type {
+  margin-top: 0;
+}
+
 .message-username {
   font-weight: bold;
 }
@@ -66,6 +70,7 @@
 .message-time {
   font-size: 1.2rem;
   color: var(--time-text-color);
+  margin-left: .4rem;
 }
 
 .message-text {
@@ -94,6 +99,7 @@
   border-style: solid;
   border-radius: 3px;
   color: var(--input-text-color);
+  font-size: 1.2rem;
   flex: 1;
   padding: 1rem 1.1rem;
 }

@@ -35,7 +35,7 @@ const handleMessageSubmit = event => {
 
 const makeReadableDateFromTimestamp = timestamp => {
   const date = new Date(timestamp)
-  return `${date.getHours()}:${date.getMinutes()}`
+  return date.toLocaleTimeString().replace(/\:\d\d\s/,' ')
 }
 
 const addMessageToMessages = messageData => {
