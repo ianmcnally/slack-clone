@@ -33,10 +33,16 @@ const handleMessageSubmit = event => {
   form.reset()
 }
 
+const makeReadableDateFromTimestamp = timestamp => {
+  const date = new Date(timestamp)
+  return `${date.getHours()}:${date.getMinutes()}`
+}
+
 const addMessageToMessages = messageData => {
   const { username, time, message } = messageData
   const innerHTML = `
-    ${username} @ ${time} - ${message}
+    <p class="message-metadata"><span class="message-username">${username}</span> <span class="message-time">${makeReadableDateFromTimestamp(time)}</span></p>
+    <p class="message-text">${message}</p>
   `
   const node = document.createElement('article')
   node.innerHTML = innerHTML
